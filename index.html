@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Page with Mouse Events</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            margin-bottom: 40px;
+        }
+        #video {
+            width: 400px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1 id="heading" onmouseover="changeHeading('Hovered Heading')" onmouseout="resetHeading()">This is the Heading</h1>
+    </div>
+
+    
+    <div class="container">
+        <img id="image" src="https://via.placeholder.com/300" alt="Placeholder Image"
+             onmouseover="changeImage('https://via.placeholder.com/300/ff0000')" 
+             onmouseout="resetImage('https://via.placeholder.com/300')">
+    </div>
+
+    
+    <div class="container">
+        <video id="video" controls
+               onmouseover="resizeVideo(640, 480)" 
+               onmouseout="resizeVideo(400, 300)">
+            <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
+
+    
+    <div class="container">
+        <p id="paragraph" onmouseover="hideParagraph()" onmouseout="showParagraph()">This is a paragraph of text. Hover over to hide it.</p>
+    </div>
+
+    <script>
+       
+        function changeHeading(newText) {
+            document.getElementById('heading').innerText = newText;
+        }
+
+        
+        function resetHeading() {
+            document.getElementById('heading').innerText = "This is the Heading";
+        }
+
+       
+        function changeImage(newSrc) {
+            document.getElementById('image').src = newSrc;
+        }
+
+        
+        function resetImage(originalSrc) {
+            document.getElementById('image').src = originalSrc;
+        }
+
+       
+        function resizeVideo(width, height) {
+            var video = document.getElementById('video');
+            video.width = width;
+            video.height = height;
+        }
+
+        
+        function hideParagraph() {
+            document.getElementById('paragraph').style.display = 'none';
+        }
+
+       
+        function showParagraph() {
+            document.getElementById('paragraph').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
